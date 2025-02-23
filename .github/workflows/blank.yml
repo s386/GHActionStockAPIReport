@@ -21,9 +21,9 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v4
     
-        - name: Set up PowerShell
-          uses: actions/setup-powershell@v1
+        ##- name: Set up PowerShell
+          ## uses: actions/setup-powershell@v1
     
         - name: Run PowerShell script
           run: |
-            powershell -File GetStockPrice.ps1 -apikey ${{secrets.stockdata_api_key}}
+            powershell -File GetStockPrice.ps1 -apikey ${{secrets.STOCKDATA_API_KEY}}

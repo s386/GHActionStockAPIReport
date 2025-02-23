@@ -1,6 +1,11 @@
 
+
+param (
+    [string]$api_token
+)
+
 $apiEndpoint = "https://api.stockdata.org/v1/data/quote"
-$api_token = "s79HUKK2cS1DgJW5B9O8BqUPrx92abLMBc0yrsbq"
+
 $sybmols=@()
 
 
