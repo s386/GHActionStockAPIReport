@@ -27,3 +27,9 @@ jobs:
         - name: Run PowerShell script
           run: |
             powershell -File GetStockPrice.ps1 -apikey ${{secrets.STOCKDATA_API_KEY}}
+
+        - name: Publish stock_price_report
+          uses: actions/upload-artifact@v4
+          with:
+            name: stock_price_report
+            path: '**/output/**'
