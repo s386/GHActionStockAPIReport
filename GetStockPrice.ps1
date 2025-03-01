@@ -1,7 +1,7 @@
 
 
 param (
-    [string]$api_token
+    [string]$apikey
 )
 
 $apiEndpoint = "https://api.stockdata.org/v1/data/quote"
@@ -10,7 +10,7 @@ $sybmols=@()
 
 $sb = new-object -TypeName "System.Text.StringBuilder"
 
-$sb.AppendLine("apiKey is [$($api_token)]")
+$sb.AppendLine("apiKey is [$($apikey)]")
 
 #Read in sybmols file
 try 
