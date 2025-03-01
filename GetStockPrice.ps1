@@ -61,4 +61,4 @@ $finalLine="$([datetime]::Now.ToString("yyyy-MM-dd HH:mm:ss"))-->$res`r`n)"
 $sb.AppendLine($finalLine)
 
 $fnOut="$([System.IO.Path]::Combine($fol,"stock_price_log.txt"))"
-[System.IO.File]::AppendAllText($fnOut,$finalLine)
+[System.IO.File]::AppendAllText($fnOut,$sb.ToString())
