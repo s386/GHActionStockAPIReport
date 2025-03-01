@@ -46,7 +46,7 @@ foreach($s in $symbols)
     try 
     {
         $response = Invoke-RestMethod -Uri $url -Method Get
-        $res+=="[$($s)] $($response.data[0].price)  "
+        $res+="[$($s)] $($response.data[0].price)  "
     }
     catch 
     {
