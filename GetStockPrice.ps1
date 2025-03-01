@@ -40,21 +40,17 @@ foreach($s in $symbols)
 $sb.AppendLine("NumSymbols: $summary")
 
 $res = ""
-if($symbols.Count -eq 0)
+foreach($s in $symbols)
 {
-    $res="No sybmols requested"
-}
-else 
-{
-    $url = "$($apiEndpoint)?api_token=$($apikey)&symbols=$($symbols[0])"
+    $url = "$($apiEndpoint)?api_token=$($apikey)&symbols=$($s)"
     try 
     {
         $response = Invoke-RestMethod -Uri $url -Method Get
-        $res="$($symbols[0])-->$($response.data[0].price)"
+        $res+=="[$($s)] $($response.data[0].price)  "
     }
     catch 
     {
-        $res="Exception: $($_.Exception.Message)"
+        $res+="Exception: Error retrieving price for $($s): $($_.Exception.Message)"
     }
 }
 
