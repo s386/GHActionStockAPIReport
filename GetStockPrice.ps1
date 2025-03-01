@@ -37,7 +37,7 @@ if($symbols.Count -eq 0)
 }
 else 
 {
-    $url = "$($apiEndpoint)?api_token=$($api_token)&symbols=$($symbols[0])"
+    $url = "$($apiEndpoint)?api_token=$($apikey)&symbols=$($symbols[0])"
     try 
     {
         $response = Invoke-RestMethod -Uri $url -Method Get
