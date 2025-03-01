@@ -8,6 +8,9 @@ $apiEndpoint = "https://api.stockdata.org/v1/data/quote"
 
 $sybmols=@()
 
+$sb = new-object -TypeName "System.Text.StringBuilder"
+
+$sb.AppendLine("apiKey is [$($api_token)]")
 
 #Read in sybmols file
 try 
@@ -54,5 +57,8 @@ if(-not ([System.IO.Directory]::Exists($fol)))
 }
 
 $finalLine="$([datetime]::Now.ToString("yyyy-MM-dd HH:mm:ss"))-->$res`r`n)"
+
+$sb.AppendLine($finalLine)
+
 $fnOut="$([System.IO.Path]::Combine($fol,"stock_price_log.txt"))"
 [System.IO.File]::AppendAllText($fnOut,$finalLine)
