@@ -6,7 +6,7 @@ param (
 
 $apiEndpoint = "https://api.stockdata.org/v1/data/quote"
 
-$sybmols=@()
+$symbols=@()
 
 $sb = new-object -TypeName "System.Text.StringBuilder"
 
@@ -59,7 +59,7 @@ if(-not ([System.IO.Directory]::Exists($fol)))
     [System.IO.Directory]::CreateDirectory($fol)
 }
 
-$finalLine="$([datetime]::Now.ToString("yyyy-MM-dd HH:mm:ss"))-->$res`r`n)"
+$finalLine="$([datetime]::Now.ToString("yyyy-MM-dd HH:mm:ss"))-->$res)"
 
 $sb.AppendLine($finalLine)
 
