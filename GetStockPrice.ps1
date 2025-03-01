@@ -10,7 +10,8 @@ $sybmols=@()
 
 $sb = new-object -TypeName "System.Text.StringBuilder"
 
-$sb.AppendLine("apiKey is [$($apikey)]")
+# this was just for debug
+#$sb.AppendLine("apiKey is [$($apikey)]")
 
 #Read in sybmols file
 try 
@@ -30,6 +31,8 @@ catch
     <#Do this if a terminating exception happens#>
 }
 
+$sb.AppendLine("NumSymbols: $($symbols.Count)")
+
 $res = ""
 if($symbols.Count -eq 0)
 {
@@ -41,7 +44,7 @@ else
     try 
     {
         $response = Invoke-RestMethod -Uri $url -Method Get
-        $res="$($sybmols[0])-->$($response.data[0].price)"
+        $res="$($symbols[0])-->$($response.data[0].price)"
     }
     catch 
     {
