@@ -26,7 +26,7 @@ jobs:
     
         - name: Run PowerShell script
           run: |
-            powershell -File GetStockPrice.ps1 -apikey ${{secrets.STOCKDATA_API_KEY}}
+            powershell -File GetStockPrice.ps1 -apikey ${{secrets.STOCKDATA_API_TOKEN}}
 
         - name: Publish stock_price_report
           uses: actions/upload-artifact@v4
