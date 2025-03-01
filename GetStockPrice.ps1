@@ -31,7 +31,13 @@ catch
     <#Do this if a terminating exception happens#>
 }
 
-$sb.AppendLine("NumSymbols: $($symbols.Count)")
+$summary = "NumSymbols: $($symbols.Count)";
+foreach($s in $symbols)
+{
+    $summary+="[$s]"
+}
+
+$sb.AppendLine("NumSymbols: $summary")
 
 $res = ""
 if($symbols.Count -eq 0)
@@ -59,7 +65,7 @@ if(-not ([System.IO.Directory]::Exists($fol)))
     [System.IO.Directory]::CreateDirectory($fol)
 }
 
-$finalLine="$([datetime]::Now.ToString("yyyy-MM-dd HH:mm:ss"))-->$res)"
+$finalLine="$([datetime]::Now.ToString("yyyy-MM-dd HH:mm:ss"))-->$res"
 
 $sb.AppendLine($finalLine)
 
