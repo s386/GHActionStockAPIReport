@@ -37,7 +37,8 @@ foreach($s in $symbols)
     $summary+="[$s]"
 }
 
-$sb.AppendLine("NumSymbols: $summary")
+# for debugging
+#$sb.AppendLine("NumSymbols: $summary")
 
 $res = ""
 foreach($s in $symbols)
