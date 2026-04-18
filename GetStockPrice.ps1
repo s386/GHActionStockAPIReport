@@ -28,7 +28,8 @@ try
 }
 catch 
 {
-    <#Do this if a terminating exception happens#>
+    #Added 
+    write-host "Exception: Error reading stock symbols file: $($_.Exception.Message)"   
 }
 
 $summary = "NumSymbols: $($symbols.Count)";
